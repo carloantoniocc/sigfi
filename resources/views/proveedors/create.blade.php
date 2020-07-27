@@ -125,6 +125,4 @@
           </div>
         </div>
         <!-- /.card -->
-    </div>
-   </section> 
 @endsection
