@@ -27,10 +27,10 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include("theme/adminlte/breadcrumb")
+     @include("theme/adminlte/breadcrumb")
 
     <!-- Main content -->
-    @include("theme/adminlte/content")
+     @yield('content')
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

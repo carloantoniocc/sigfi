@@ -66,21 +66,27 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
+                <a href="{{ URL::to('users') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link">
+                <a href="{{ URL::to('proveedors') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Comunas</p>
+                  <p>Proveedores</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/jsgrid.html" class="nav-link">
+                <a href="{{ URL::to('categorias') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categorias</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ URL::to('productos') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Productos</p>
                 </a>
               </li>
             </ul>
