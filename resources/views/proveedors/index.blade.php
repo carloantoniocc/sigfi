@@ -11,7 +11,6 @@
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
                     <div class="input-group-append">
                       <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                      <a class="btn btn-sm btn-primary" href="{{ URL::to('proveedors/create') }}">Crear Proveedor</a>
                     </div>
                   </div>
                 </div>

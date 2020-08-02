@@ -30,4 +30,6 @@ Route::resource('productos','ProductoController');
 
 Route::resource('proveedors','ProveedorController');
 
+Route::resource('compras','CompraController');
+
 

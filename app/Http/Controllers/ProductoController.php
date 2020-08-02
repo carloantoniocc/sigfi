@@ -33,7 +33,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view('productos.create');
     }
 
     /**
@@ -44,7 +44,24 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if (Auth::check()) {
+
+            $this->validate($request, [
+                'name' => 'required|string|max:150',
+            ]);
+            
+                $producto = new Producto;
+                $producto->name = $request->input('name');    
+                $producto->active = $request->input('active');
+                $producto->save(); 
+                return redirect('/productos')->with('message','store'); 
+
+        } else {
+
+            return view('auth/login');
+        }
+
     }
 
     /**
@@ -66,7 +83,12 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        if (Auth::check()) {
+            return view('productos.edit',compact('producto'));
+        } else {
+            return view('auth/login');
+        }
+
     }
 
     /**
@@ -78,7 +100,21 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+ 
+        if (Auth::check()) {
+
+            $this->validate($request, [
+                'name' => 'required|string|max:150',
+            ]);
+            
+                $producto->name = $request->input('name');
+                $producto->active = $request->input('active');
+                $producto->save();    
+                return redirect('/productos')->with('message','update');
+        } else {
+            return view('auth/login');
+        } 
+
     }
 
     /**
