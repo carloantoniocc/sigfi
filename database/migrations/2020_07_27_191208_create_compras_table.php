@@ -16,9 +16,15 @@ class CreateComprasTable extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->increments('id')->index();
             $table->integer('producto_id')->unsigned();
+            $table->integer('medida_id')->nullable()->unsigned();  
             $table->integer('monto');
+            $table->integer('cantidad');
             $table->boolean('active')->default(true);
             $table->timestamps();
+
+            $table->foreign('producto_id')->references('id')->on('productos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('medida_id')->references('id')->on('medidas')->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 

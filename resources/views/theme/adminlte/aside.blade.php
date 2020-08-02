@@ -110,9 +110,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link">
+                <a href="{{ URL::to('compras') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ingreso Masivo</p>
+                  <p>Resumen de Compras</p>
                 </a>
               </li>
               <li class="nav-item">

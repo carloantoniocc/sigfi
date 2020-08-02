@@ -29,6 +29,19 @@
                     </div>
                   </div>
 
+                  <div class="form-group row{{ $errors->has('categoria_id') ? ' has-error' : '' }}">
+                      <label for="categoria_id"  class="col-sm-2 col-form-label">Categoria</label>
+
+                      <div class="col-sm-10">
+                          <select id="jsonprovider_id" class="form-control" name="jsonprovider_id" >
+                            <option value="">Seleccione Categoria</option>
+                            @foreach($categorias as $categoria)
+                              <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                            @endforeach
+                          </select>
+                      </div>
+                  </div>
+
                   <div class="form-group row {{ $errors->has('active') ? ' has-error' : '' }}">
                     <label for="active" class="col-sm-2 col-form-label">Activo</label>
 

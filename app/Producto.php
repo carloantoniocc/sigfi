@@ -11,4 +11,11 @@ class Producto extends Model
             $query->where('name', "LIKE", "%$search%");
         }
     }
+
+    public function compras()
+    {
+        return $this->hasMany(Compra::class);
+    }
+
+
 }

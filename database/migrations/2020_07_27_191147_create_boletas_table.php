@@ -20,7 +20,10 @@ class CreateBoletasTable extends Migration
             $table->integer('nDoc');
             $table->integer('nroProductos');
             $table->integer('monto');
-            $table->timestamps();            
+            $table->timestamps();   
+
+            $table->foreign('proveedor_id')->references('id')->on('proveedors')->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 
