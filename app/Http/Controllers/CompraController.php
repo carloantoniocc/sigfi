@@ -21,6 +21,8 @@ class CompraController extends Controller
     public function index()
     {
         $compras = Compra::paginate();
+        #$compra = Compra::first();
+        #dd($compra->medida);
         return view('compras.index',compact('compras'));
 
     }
@@ -58,7 +60,6 @@ class CompraController extends Controller
                 $compra->producto_id = $request->input('producto_id');
                 $compra->medida_id = $request->input('medida_id'); 
                 $compra->monto = $request->input('monto');    
-                $compra->monto = $request->input('monto'); 
                 $compra->cantidad = $request->input('cantidad');                  
                 $compra->active = 1;
                 $compra->save(); 

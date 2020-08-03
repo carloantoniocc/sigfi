@@ -25,15 +25,17 @@
                       <th>Producto</th>
                       <th>monto</th>
                       <th>cantidad</th>
+                      <th>medida</th>
                       <th>editar</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($compras as $compra)
                     <tr>
-                      <td>{{ $compra->id }}</td>
+                      <td>{{ $compra->producto->name }}</td>
                       <td>{{ $compra->monto }}</td>
                       <td>{{ $compra->cantidad }}</td>
+                      <td>{{ $compra->medida->name }}</td>
                       <td><a href="{{ URL::to('productos/' . $compra->id . '/edit') }}">Editar</a></td>
                     </tr>
                     @endforeach
