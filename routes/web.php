@@ -32,4 +32,6 @@ Route::resource('proveedors','ProveedorController');
 
 Route::resource('compras','CompraController');
 
+Route::resource('dashboards','DashboardController');
+
 
