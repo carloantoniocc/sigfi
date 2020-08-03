@@ -81,7 +81,7 @@ class CompraController extends Controller
      */
     public function show(Compra $compra)
     {
-        //
+        return view('compras.show',compact('compra'));
     }
 
     /**
@@ -92,7 +92,13 @@ class CompraController extends Controller
      */
     public function edit(Compra $compra)
     {
-        //
+        if (Auth::check()) {
+            $productos = Producto::all();
+            $medidas = Medida::all();
+            return view('compras.edit',compact('compra','productos','medidas'));
+        } else {
+            return view('auth/login');
+        }
     }
 
     /**
@@ -104,7 +110,25 @@ class CompraController extends Controller
      */
     public function update(Request $request, Compra $compra)
     {
-        //
+        if (Auth::check()) {
+
+            $this->validate($request, [
+                'monto' => 'required|numeric',
+                'cantidad' => 'required|numeric',
+            ]);
+            
+                $compra->producto_id = $request->input('producto_id');
+                $compra->medida_id = $request->input('medida_id'); 
+                $compra->monto = $request->input('monto');    
+                $compra->cantidad = $request->input('cantidad');                  
+                $compra->active = $request->input('active'); ;
+                $compra->save(); 
+                return redirect('/compras')->with('message','update');
+
+        } else {
+
+            return view('auth/login');
+        }
     }
 
     /**
@@ -115,6 +139,7 @@ class CompraController extends Controller
      */
     public function destroy(Compra $compra)
     {
-        //
+        $compra->delete();
+        return redirect('/compras')->with('message','update');
     }
 }

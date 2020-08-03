@@ -22,21 +22,25 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
+                      <th>id</th>
                       <th>Producto</th>
                       <th>monto</th>
-                      <th>cantidad</th>
-                      <th>medida</th>
-                      <th>editar</th>
+                      <th>Formato</th>
+                      <th>Fecha</th>
+                      <th>Editar</th>
+                      <th>Eliminar</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($compras as $compra)
                     <tr>
+                      <td>{{ $compra->id }}</td>
                       <td>{{ $compra->producto->name }}</td>
-                      <td>{{ $compra->monto }}</td>
-                      <td>{{ $compra->cantidad }}</td>
-                      <td>{{ $compra->medida->name }}</td>
-                      <td><a href="{{ URL::to('productos/' . $compra->id . '/edit') }}">Editar</a></td>
+                      <td >${{ $compra->monto }}.</td>
+                      <td>{{ $compra->cantidad }} &nbsp; {{ $compra->medida->name }} </td>
+                      <td>{{ $compra->created_at }}</td>
+                      <td><a href="{{ URL::to('compras/' . $compra->id . '/edit') }}">Editar</a></td>
+                      <td><a href="{{ URL::to('compras/' . $compra->id ) }}">Eliminar</a></td>
                     </tr>
                     @endforeach
                   </tbody>
@@ -48,4 +52,5 @@
             <!-- /.card -->
           </div>
         </div>
+
 @endsection
